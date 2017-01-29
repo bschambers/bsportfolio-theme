@@ -1,0 +1,318 @@
+/*
+Theme Name: bsportfolio
+Theme URI:
+Author: Ben Chambers
+Author URI: http://bschambers.info
+Description: A fairly clean and simple portfolio theme. Home page shows a grid of FEATURED IMAGES (several styles available in settings). Tags and search box are integrated, but hidden by default for a cleaner look.
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: minimal, grid, image array
+Text Domain: bsportfolio
+*/
+
+/*----------------------------------------------------------------------------*/
+
+/* GENERAL MISC */
+
+html {
+    font-family: arial;
+    /* font-size: 100%; */
+    /* background: #779999; */
+    -webkit-box-sizing: border-box; /* for old browser support */
+    -moz-box-sizing: border-box; /* for old browser support */
+    box-sizing: border-box; /* fixes quirky box-sizing behaviour */
+}
+
+*, *:before, *:after {
+    -webkit-box-sizing: border-box; /* for old browser support */
+    -moz-box-sizing: border-box; /* for old browser support */
+    box-sizing: border-box; /* fixes quirky box-sizing behaviour */
+}
+
+/* Text meant only for screen readers (hide from view) */
+.screen-reader-text {
+    clip: rect(1px, 1px, 1px, 1px);
+    height: 1px;
+    overflow: hidden;
+    position: absolute !important;
+    width: 1px;
+}
+
+
+
+/*----------------------------------------------------------------------------*/
+
+/* MENU BAR */
+header.site-header {
+    border: 0;
+    height: 4rem;
+    padding-left: 1rem;
+    padding-top: 1rem;
+    display: block;
+    Background: #888; /*  */
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    /* height: 3em; */
+    /* border-bottom: white 1px solid; */
+}
+
+header h1.site-title {
+    display: inline;
+    size: 2rem;
+}
+
+header li.page_item {
+    display: inline;
+}
+
+/* header.site-header a { */
+header a, .single-post-pagination a {
+    /* outline: 0; /\* get rid of the dotted border when link is visited *\/ */
+}
+/* header.site-header a:link { */
+header a:link, .single-post-pagination a:link {
+    text-decoration: none; /* remove underline from links */
+    color: white;
+}
+/* header.site-header a:visited { */
+header a:visited, .single-post-pagination a:visited {
+    text-decoration: none; /* remove underline from links */
+    color: white;
+}
+/* header.site-header a:hover { */
+header a:hover, .single-post-pagination a:hover {
+    text-decoration: none; /* remove underline from links */
+    color: #ddd;
+}
+/* header.site-header a:active { */
+header a:active, .single-post-pagination a:active {
+    text-decoration: none; /* remove underline from links */
+    color: white;
+}
+
+/* insert '|' before each static page link */
+header.site-header li.page_item::before {
+    color: white;
+    content: " | ";
+}
+
+/* prevent pages links from wrapping around on small screen */
+div.header-links {
+    white-space: nowrap;
+}
+
+/* header.site-header a:focus { */
+/*     text-decoration: none; /\* remove underline from links *\/ */
+/*     color: green; */
+/*     Background: red; */
+/* } */
+
+/* h2.entry-title { */
+/*     color: black; */
+/* } */
+/* h2.entry-title a { */
+/*     text-decoration: none; */
+/* } */
+/* h2.entry-title a:link { */
+/*     color: #888; */
+/* } */
+/* h2.entry-title a:visited { */
+/*     color: #888; */
+/* } */
+/* h2.entry-title a:hover { */
+/*     color: #888; */
+/* } */
+/* h2.entry-title a:active { */
+/*     color: #888; */
+/* } */
+
+
+
+/*----------------------------------------------------------------------------*/
+
+/* SINGLE-POST PAGINATION */
+
+.single-post-pagination {
+    color: black;
+    display: block;
+    Background: #888;
+    position: fixed;
+    top: 4rem;
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding-left: 1rem;
+    border-top: white 1px solid;
+}
+
+span.single-post-pagination-link {
+    display: inline-block;
+    width:  4em;
+    text-align: center;
+}
+
+
+
+/*----------------------------------------------------------------------------*/
+
+/* SEARCH FORM */
+
+span#nav-menu-search-form {
+    /* position: absolute; */
+    float: right;
+    margin-right: 2rem;
+    margin-top: 0.5rem;
+}
+
+input {
+    border: none;
+}
+
+
+
+/*----------------------------------------------------------------------------*/
+
+/* SEARCH RESULTS */
+
+span.search-results-image img {
+    /* display: inline-block; */
+    float: left;
+    margin: 1rem;
+}
+
+
+
+/*----------------------------------------------------------------------------*/
+
+body {
+    padding-top: 4rem; /* leave room for the menu bar */
+}
+
+
+
+/*----------------------------------------------------------------------------*/
+
+/* HOME PAGE IMAGE GRID */
+
+a.thumbs-grid {
+    text-decoration: none; /* gets rid of the annoying dashes in between images in the grid */
+}
+
+
+
+/* grid-horizontal-flow */
+
+article.grid-horizontal-flow {
+    display: inline-block;
+    vertical-align: top;
+    padding: none; /* space inside border */
+    margin: 0.5rem; /* space outside border */
+    /* height: 300px; */
+}
+article.grid-horizontal-flow img {
+    display: block;
+    /* height: 100%; */
+    /* width: auto; */
+}
+
+
+
+/* grid-horizontal-flow-resize */
+
+article.grid-horizontal-flow-resize {
+    display: inline-block;
+    vertical-align: top;
+    padding: none; /* space inside border */
+    margin: 0.5rem; /* space outside border */
+    height: 300px;
+}
+article.grid-horizontal-flow-resize img {
+    display: block;
+    height: 100%;
+    width: auto;
+}
+
+
+
+/* grid-spaced */
+
+article.grid-spaced {
+    /* border: 1px solid blue; */
+    display: inline-block;
+    text-align: center;
+    padding: 2rem;
+    height: 300px;
+    width: 300px;
+}
+article.grid-spaced img {
+    /* border: 1px solid red; */
+    vertical-align: middle;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+}
+
+
+
+/* grid-gallery-preview-blocks */
+/* FOR OLD GALLERY-PREVIEW MICRO-THUMBS ARRAY - not currently implemented! */
+
+div.grid-gallery-preview_blocks {
+    line-height: 0; /* gets rid of vertical space between rows of thumbnail images */
+}
+
+img.post-preview-thumb {
+    /*
+     * 2.96em should make 6 thumbs fit exactly in to the box...
+     * ... box width is 20em
+     * ... padding is 1em
+     * ... border is 0.1em
+     * ... 20 - 2 - 0.2 = 17.8
+     * ... 2.96 * 6 = 17.759999999999998
+     */
+    width:  2.96em;
+    height: 2.96em;
+    padding: 0;
+    border: 0;
+}
+
+
+
+/*------------------------------------------------------------------*/
+/*------------- MEDIA RULES (for responsive web page) --------------*/
+/*------------------------------------------------------------------*/
+
+/* @media screen and (max-width: 1200px) { */
+/* @media screen and (max-width: 1200px) { */
+/*     html { */
+/*         Background: yellow; */
+/*     } */
+/* } */
+
+/* @media screen and (max-width: 800px) { */
+/* @media screen and (max-width: 100em) { */
+/*     html { */
+/*         Background: red; */
+/*     } */
+/* } */
+
+/* @media screen and (max-width: 70em) { */
+/*     html { */
+/*         Background: cyan; */
+/*     } */
+/*     /\* header.site-header { *\/ */
+/*     /\*     height: 6em; *\/ */
+/*     /\* } *\/ */
+/* } */
+/* @media screen and (max-width: 40em) { */
+/*     html { */
+/*         Background: magenta; */
+/*     } */
+/*     /\* header.site-header { *\/ */
+/*     /\*     height: 8em; *\/ */
+/*     /\* } *\/ */
+/* } */
