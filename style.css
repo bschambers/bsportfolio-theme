@@ -282,6 +282,21 @@ img.post-preview-thumb {
 
 
 
+/*---------------------------- TOOLTIPS ----------------------------*/
+
+/* Tooltip text */
+.tooltip .tooltip-text {
+    visibility: hidden;
+    color: black;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltip-text {
+    visibility: visible;
+}
+
+
+
 /*------------------------------------------------------------------*/
 /*------------- MEDIA RULES (for responsive web page) --------------*/
 /*------------------------------------------------------------------*/
