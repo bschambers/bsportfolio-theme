@@ -21,7 +21,7 @@
     <div id="page" class="hfeed site">
 
       <a class="skip-link screen-reader-text" href="#content">
-        <?php _e('Skip to content', 'twentyfifteen'); ?>
+        <?php _e('Skip to content', 'bsportfolio'); ?>
       </a>
 
 

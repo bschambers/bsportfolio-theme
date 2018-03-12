@@ -1,7 +1,7 @@
 /*
 Theme Name: bsportfolio
 Theme URI:
-Author: Ben Chambers
+Author: B. S. Chambers
 Author URI: http://bschambers.info
 Description: A fairly clean and simple portfolio theme. Home page shows a grid of FEATURED IMAGES (several styles available in settings). Tags and search box are integrated, but hidden by default for a cleaner look.
 Version: 1.0
@@ -18,7 +18,6 @@ Text Domain: bsportfolio
 html {
     font-family: arial;
     /* font-size: 100%; */
-    /* background: #779999; */
     -webkit-box-sizing: border-box; /* for old browser support */
     -moz-box-sizing: border-box; /* for old browser support */
     box-sizing: border-box; /* fixes quirky box-sizing behaviour */
@@ -39,6 +38,12 @@ html {
     width: 1px;
 }
 
+body {
+    padding-left: 8%;
+    padding-right: 8%;
+    padding-top: 4rem; /* leave room for the menu bar */
+}
+
 
 
 /*----------------------------------------------------------------------------*/
@@ -46,9 +51,11 @@ html {
 /* MENU BAR */
 header.site-header {
     border: 0;
-    height: 4rem;
-    padding-left: 1rem;
+    /* height: 4rem; */
+    padding-left: 8%;
+    padding-right: 8%;
     padding-top: 1rem;
+    padding-bottom: 1rem;
     display: block;
     Background: #888; /*  */
     position: fixed;
@@ -72,6 +79,7 @@ header li.page_item {
 header a, .single-post-pagination a {
     /* outline: 0; /\* get rid of the dotted border when link is visited *\/ */
 }
+
 /* header.site-header a:link { */
 header a:link, .single-post-pagination a:link {
     text-decoration: none; /* remove underline from links */
@@ -93,41 +101,16 @@ header a:active, .single-post-pagination a:active {
     color: white;
 }
 
+header.site-header li.page_item {
+    display: inline-block;
+}
+
 /* insert '|' before each static page link */
 header.site-header li.page_item::before {
+    /* display: inline-block; */
     color: white;
     content: " | ";
 }
-
-/* prevent pages links from wrapping around on small screen */
-div.header-links {
-    white-space: nowrap;
-}
-
-/* header.site-header a:focus { */
-/*     text-decoration: none; /\* remove underline from links *\/ */
-/*     color: green; */
-/*     Background: red; */
-/* } */
-
-/* h2.entry-title { */
-/*     color: black; */
-/* } */
-/* h2.entry-title a { */
-/*     text-decoration: none; */
-/* } */
-/* h2.entry-title a:link { */
-/*     color: #888; */
-/* } */
-/* h2.entry-title a:visited { */
-/*     color: #888; */
-/* } */
-/* h2.entry-title a:hover { */
-/*     color: #888; */
-/* } */
-/* h2.entry-title a:active { */
-/*     color: #888; */
-/* } */
 
 
 
@@ -144,8 +127,10 @@ div.header-links {
     left: 0;
     right: 0;
     margin: 0;
-    padding-left: 1rem;
+    padding-left: 8%;
+    padding-right: 8%;
     border-top: white 1px solid;
+    /* border-bottom: white 1px solid; */
 }
 
 span.single-post-pagination-link {
@@ -161,10 +146,9 @@ span.single-post-pagination-link {
 /* SEARCH FORM */
 
 span#nav-menu-search-form {
-    /* position: absolute; */
     float: right;
-    margin-right: 2rem;
-    margin-top: 0.5rem;
+    /* margin-right: 2rem; */
+    margin-top: 1em;
 }
 
 input {
@@ -181,14 +165,6 @@ span.search-results-image img {
     /* display: inline-block; */
     float: left;
     margin: 1rem;
-}
-
-
-
-/*----------------------------------------------------------------------------*/
-
-body {
-    padding-top: 4rem; /* leave room for the menu bar */
 }
 
 
@@ -297,37 +273,48 @@ img.post-preview-thumb {
 
 
 
-/*------------------------------------------------------------------*/
-/*------------- MEDIA RULES (for responsive web page) --------------*/
-/*------------------------------------------------------------------*/
+/*---------------- MEDIA RULES (for narrow display) ----------------*/
 
-/* @media screen and (max-width: 1200px) { */
-/* @media screen and (max-width: 1200px) { */
-/*     html { */
-/*         Background: yellow; */
-/*     } */
-/* } */
+/*
+ * Fairly narrow screen:
+ *
+ * - get rid of horizontal padding on body
+ */
+@media screen and (max-width: 1400px) {
+    
+    header.site-header {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
 
-/* @media screen and (max-width: 800px) { */
-/* @media screen and (max-width: 100em) { */
-/*     html { */
-/*         Background: red; */
-/*     } */
-/* } */
+    .single-post-pagination {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
 
-/* @media screen and (max-width: 70em) { */
-/*     html { */
-/*         Background: cyan; */
-/*     } */
-/*     /\* header.site-header { *\/ */
-/*     /\*     height: 6em; *\/ */
-/*     /\* } *\/ */
-/* } */
-/* @media screen and (max-width: 40em) { */
-/*     html { */
-/*         Background: magenta; */
-/*     } */
-/*     /\* header.site-header { *\/ */
-/*     /\*     height: 8em; *\/ */
-/*     /\* } *\/ */
-/* } */
+    body {
+        padding-left: 0%;
+        padding-right: 0%;
+    }
+}
+
+/*
+ * Very narrow screen:
+ *
+ * - don't anchor title bar to top of screen
+ */
+@media screen and (max-width: 800px) {
+
+    header.site-header {
+        position: absolute;
+    }
+    
+    span#nav-menu-search-form {
+        float: none;
+        margin-top: 0;
+    }
+    
+    .single-post-pagination {
+        position: absolute;
+    }
+}
