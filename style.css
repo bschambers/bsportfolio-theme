@@ -44,6 +44,10 @@ body {
     padding-top: 4rem; /* leave room for the menu bar */
 }
 
+.clearfix {
+    overflow: auto;
+}
+
 
 
 /*----------------------------------------------------------------------------*/

@@ -50,7 +50,7 @@ if (is_home() || is_archive()) :
     <tr>
       <td>
   
-  <div id="post-<?php the_ID(); ?>" <?php post_class("search-results") ?>>
+  <div id="post-<?php the_ID(); ?>" <?php post_class("search-results, clearfix") ?>>
     <a class="search-results" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
       <span id="post-<?php the_ID(); ?>" <?php post_class("search-results-image") ?>>
         <?php
@@ -68,11 +68,8 @@ if (is_home() || is_archive()) :
 
     <?php
     /* EXERPT OF TEXT FEATURING SEARCH TERMS */
-    //the_content();
+    the_excerpt();
     ?>
-    <p>This is the text exerpt featuring the text containing the search terms...</p>
-    <p>... blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah...</p>
-    <p style="color:red">NOT YET IMPLEMENTED!</p>
 
   </div>
 
