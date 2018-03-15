@@ -1,5 +1,5 @@
 /*
-Theme Name: bsportfolio
+Theme Name: BSPortfolio
 Theme URI:
 Author: B. S. Chambers
 Author URI: http://bschambers.info
@@ -7,7 +7,7 @@ Description: A fairly clean and simple portfolio theme. Home page shows a grid o
 Version: 1.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tags: minimal, grid, image array
+Tags: portfolio, minimal, grid, image array
 Text Domain: bsportfolio
 */
 
@@ -80,7 +80,7 @@ header li.page_item {
 }
 
 /* header.site-header a { */
-header a, .single-post-pagination a {
+div.single-post-pagination a {
     /* outline: 0; /\* get rid of the dotted border when link is visited *\/ */
 }
 

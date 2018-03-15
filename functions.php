@@ -119,12 +119,12 @@ echo '
 
 
 // database option names
-$opt_tags = 'bs_show_tags';
-$opt_search = 'bs_show_search';
-$opt_grid_style = 'bs_grid_style';
-$opt_image_size = 'bs_grid_image_size';
-$opt_image_spacing = 'bs_grid_image_spacing';
-$opt_spaced_spacing = 'bs_grid_spaced_spacing';
+$opt_tags = 'bsp_show_tags';
+$opt_search = 'bsp_show_search';
+$opt_grid_style = 'bsp_grid_style';
+$opt_image_size = 'bsp_grid_image_size';
+$opt_image_spacing = 'bsp_grid_image_spacing';
+$opt_spaced_spacing = 'bsp_grid_spaced_spacing';
 
 
 
@@ -133,11 +133,11 @@ add_action('admin_menu', 'bsportfolio_menu');
 
 // the function which creates the new admin menu
 function bsportfolio_menu() {
-    // add_options_page( $page_title, $menu_title, $capability, $menu_slug, $function)
-    add_options_page('bsportfolio theme', 'BS Portfolio theme', 'manage_options', 'bsportfolio-settings', 'bsportfolio_settings');
+    // add_options_page($page_title, $menu_title, $capability, $menu_slug, $function)
+    add_options_page('bsportfolio theme', 'BSPortfolio theme', 'manage_options', 'bsportfolio-settings', 'bsportfolio_settings');
 }
 
-// 
+// builds the custom menu
 function bsportfolio_settings() {
     if (!current_user_can( 'manage_options')) {
 	wp_die( __('You do not have sufficient permissions to access this page.'));
@@ -148,14 +148,14 @@ function bsportfolio_settings() {
     $opt_image_size, $opt_image_spacing, $opt_spaced_spacing;
     
     // field names
-    $field_tags = "bs-show-tags";
-    $field_search = "bs-show-search";
-    $field_grid = 'bs-grid-style';
-    $field_image_size = 'bs-grid-image-size';
-    $field_image_spacing = 'bs-grid-image-spacing';
-    $field_spaced_spacing = 'bs-grid-spaced-spacing';
+    $field_tags = "bsp-show-tags";
+    $field_search = "bsp-show-search";
+    $field_grid = 'bsp-grid-style';
+    $field_image_size = 'bsp-grid-image-size';
+    $field_image_spacing = 'bsp-grid-image-spacing';
+    $field_spaced_spacing = 'bsp-grid-spaced-spacing';
     //
-    $hidden_field = 'bs_submit_hidden';
+    $hidden_field = 'bsp_submit_hidden';
 
     // read in existing values from the database
     $show_tags = get_option($opt_tags);
@@ -285,40 +285,40 @@ function bsportfolio_settings() {
        - before a setting is visible, it must have an associated control
      */
     function bsportfolio_theme_customize_register($wp_customize) {
-
-        $wp_customize->add_section('bs_theme_colors', array(
+        
+        $wp_customize->add_section('bsp_theme_colors', array(
             'title' => 'Colors',
             'description' => 'Change colors for BS Portfolio theme.',
             'priority' => 35,
         ));
 
-        $wp_customize->add_setting('bs_menu_bar_color', array(
+        $wp_customize->add_setting('bsp_menu_bar_color', array(
             'default'           => '#888',
             'sanitize_callback' => 'sanitize_hex_color',
         ));
-        $wp_customize->add_control('bs_menu_bar_color', array(
+        $wp_customize->add_control('bsp_menu_bar_color', array(
             'label' => 'Menu Bar Color',
-            'section' => 'bs_theme_colors',
+            'section' => 'bsp_theme_colors',
             'type' => 'text',
             ));
 
-        /* $wp_customize->add_setting('bs_menu_bar_text_color', array(
+        /* $wp_customize->add_setting('bsp_menu_bar_text_color', array(
          *     'default'           => '#fff',
          *     'sanitize_callback' => 'sanitize_hex_color',
          * ));
-         * $wp_customize->add_control('bs_menu_bar_text_color', array(
+         * $wp_customize->add_control('bsp_menu_bar_text_color', array(
          *     'label' => 'Menu Bar Text Color',
-         *     'section' => 'bs_theme_colors',
+         *     'section' => 'bsp_theme_colors',
          *     'type' => 'text',
          * ));
 
-         * $wp_customize->add_setting('bs_menu_bar_rollover_color', array(
+         * $wp_customize->add_setting('bsp_menu_bar_rollover_color', array(
          *     'default'           => '#ddd',
          *     'sanitize_callback' => 'sanitize_hex_color',
          * ));
-         * $wp_customize->add_control('bs_menu_bar_rollover_color', array(
+         * $wp_customize->add_control('bsp_menu_bar_rollover_color', array(
          *     'label' => 'Menu Bar Text Link Roll-Over Color',
-         *     'section' => 'bs_theme_colors',
+         *     'section' => 'bsp_theme_colors',
          *     'type' => 'text',
          * ));
          */
@@ -334,12 +334,13 @@ function bsportfolio_settings() {
 	   'menu_bar_color',
 	   array(
 	   'label'      => __('Menu Bar Color', 'mytheme'),
-	   'section'    => 'bs_theme_colors',
-	   'settings'   => 'bs_menu_bar_color',
+	   'section'    => 'bsp_theme_colors',
+	   'settings'   => 'bsp_menu_bar_color',
 	   ))
          * );
          */
     }
+    
     add_action('customize_register', 'bsportfolio_theme_customize_register');
     
     
@@ -379,19 +380,18 @@ function bsportfolio_settings() {
     }
 
 
-
     
     function bsportfolio_theme_customize_css() {
         global $opt_image_size, $opt_image_spacing, $opt_spaced_spacing;
         
         // get lighter version of color for roll-over color...
         // $hover_color = '#f00';
-        $hover_color = lighten_or_darken(get_theme_mod('bs_menu_bar_color'), -60); // lighten by 50%
+        $hover_color = lighten_or_darken(get_theme_mod('bsp_menu_bar_color'), -60); // lighten by 50%
         
     ?>
       <style type="text/css">
        header.site-header, .single-post-pagination {
-           Background: <?php echo get_theme_mod('bs_menu_bar_color', '#888'); ?>;
+           Background: <?php echo get_theme_mod('bsp_menu_bar_color', '#888'); ?>;
        }
        header a:hover, .single-post-pagination a:hover {
            color: <?php echo $hover_color ?>;

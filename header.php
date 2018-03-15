@@ -48,7 +48,7 @@
                         'sort_column' => 'post_date')); ?>
 
 
-                    <?php if (get_option('bs_show_search')) {
+                    <?php if (get_option('bsp_show_search')) {
                         echo '<span id="nav-menu-search-form">';
                         get_search_form(true);
                         echo '</span>';
