@@ -38,7 +38,7 @@ function my_custom_dashboard_widgets() {
 
 function custom_dashboard_help() {
     //echo '<p><strong>Tips for using the BS Portfolio theme</strong></p>
-echo '
+    echo '
 <p><strong>IMAGE GUIDELINES:</strong></p>
 <ul style="list-style-type: disc;">
 
@@ -185,28 +185,28 @@ function bsportfolio_settings() {
         update_option($opt_spaced_spacing, $spaced_spacing);
         // put a 'settings saved' message on screen
         // NOTE: _e() is a translation function... see documentation...
-  ?>
-  <div class='updated'><p><strong><?php _e('Settings saved.', 'bsportfolio-settings'); ?></strong></p>
-    <p>show-tags = <?php echo $show_tags; ?></p>
-    <p>show-search = <?php echo $show_search; ?></p>
-    <p>grid-style = <?php echo $grid_style; ?></p>
-    <p>image-size = <?php echo $image_size; ?></p>
-    <p>image-spacing = <?php echo $image_spacing; ?></p>
-    <p>spaced-grid-spacing = <?php echo $spaced_spacing; ?></p>
-</div>
-  <?php
-  }
+?>
+    <div class='updated'><p><strong><?php _e('Settings saved.', 'bsportfolio-settings'); ?></strong></p>
+        <p>show-tags = <?php echo $show_tags; ?></p>
+        <p>show-search = <?php echo $show_search; ?></p>
+        <p>grid-style = <?php echo $grid_style; ?></p>
+        <p>image-size = <?php echo $image_size; ?></p>
+        <p>image-spacing = <?php echo $image_spacing; ?></p>
+        <p>spaced-grid-spacing = <?php echo $spaced_spacing; ?></p>
+    </div>
+<?php
+}
 
 
 
-  // display settings editing form
-  echo '<div class="wrap">';
-  // header
-  echo "<h2>" . __('BS Portfolio Theme Settings', 'bsportfolio-settings') . "</h2>";
-  // settings form
-  ?>
+// display settings editing form
+echo '<div class="wrap">';
+// header
+echo "<h2>" . __('BSPortfolio Theme Settings', 'bsportfolio-settings') . "</h2>";
+// settings form
+?>
 
-  <form name="bsportfolio-form" method="post" action="">
+<form name="bsportfolio-form" method="post" action="">
     <input type="hidden" name="<?php echo $hidden_field; ?>" value="Y"/>
 
 
@@ -227,24 +227,24 @@ function bsportfolio_settings() {
     ?>
 
     <p>
-      <input type="radio" name="<?php echo $field_grid; ?>" value="<?php echo $horiz_flow_val; ?>" <?php checked($horiz_flow_val, get_option($opt_grid_style)); ?> /><?php echo $horiz_flow_val; ?><br/>
-      Images aligned on top edge and NOT resized, so if you want them to all be the same height you need to either make sure that your images are all the same height, or use horizontal-flow-resized.<br/>
-      If you want a grid of squares or rectangles of regular size then you need to make your images the right size before you upload them.<br/>
-      Spacing is set with the <i>image spacing</i> option below.<br/>
-      Unaffected by <i>image size</i> option.
+        <input type="radio" name="<?php echo $field_grid; ?>" value="<?php echo $horiz_flow_val; ?>" <?php checked($horiz_flow_val, get_option($opt_grid_style)); ?> /><?php echo $horiz_flow_val; ?><br/>
+        Images aligned on top edge and NOT resized, so if you want them to all be the same height you need to either make sure that your images are all the same height, or use horizontal-flow-resized.<br/>
+        If you want a grid of squares or rectangles of regular size then you need to make your images the right size before you upload them.<br/>
+        Spacing is set with the <i>image spacing</i> option below.<br/>
+        Unaffected by <i>image size</i> option.
     </p>
     <p>
-      <input type="radio" name="<?php echo $field_grid; ?>" value="<?php echo $horiz_flow_resize_val; ?>" <?php checked($horiz_flow_resize_val, get_option($opt_grid_style)); ?> /><?php echo $horiz_flow_resize_val; ?><br/>
-      Same as horizontal-flow, but will force images to fit the standard height.<br/>
-      Height is set with the <i>image size</i> option below.<br/>
-      Spacing is set with the <i>image spacing</i> option below.
+        <input type="radio" name="<?php echo $field_grid; ?>" value="<?php echo $horiz_flow_resize_val; ?>" <?php checked($horiz_flow_resize_val, get_option($opt_grid_style)); ?> /><?php echo $horiz_flow_resize_val; ?><br/>
+        Same as horizontal-flow, but will force images to fit the standard height.<br/>
+        Height is set with the <i>image size</i> option below.<br/>
+        Spacing is set with the <i>image spacing</i> option below.
     </p>
     <p>
-      <input type="radio" name="<?php echo $field_grid; ?>" value="<?php echo $spaced_grid_val; ?>" <?php checked($spaced_grid_val, get_option($opt_grid_style)); ?> /><?php echo $spaced_grid_val; ?><br/>
-      Images placed in a regular grid, with some padding in between them.<br/>
-      Images will be forced to standard size.<br/>
-      Size is set with the <i>image size</i> option below.<br/>
-      Padding is set with <i>spaced-grid spacing</i> option below.
+        <input type="radio" name="<?php echo $field_grid; ?>" value="<?php echo $spaced_grid_val; ?>" <?php checked($spaced_grid_val, get_option($opt_grid_style)); ?> /><?php echo $spaced_grid_val; ?><br/>
+        Images placed in a regular grid, with some padding in between them.<br/>
+        Images will be forced to standard size.<br/>
+        Size is set with the <i>image size</i> option below.<br/>
+        Padding is set with <i>spaced-grid spacing</i> option below.
     </p>
 
 
@@ -252,28 +252,28 @@ function bsportfolio_settings() {
     <p><h2>Grid Style Options</h2></p>
 
     <p>
-      <label for="<?php echo $field_image_size; ?>"><?php _e('image size (default = 300px)'); ?></label>
-      <input name="<?php echo $field_image_size; ?>" type="number" step="1" min="0" id="<?php echo $field_image_size; ?>" value="<?php echo get_option($opt_image_size); ?>" class="small-text" />
+        <label for="<?php echo $field_image_size; ?>"><?php _e('image size (default = 300px)'); ?></label>
+        <input name="<?php echo $field_image_size; ?>" type="number" step="1" min="0" id="<?php echo $field_image_size; ?>" value="<?php echo get_option($opt_image_size); ?>" class="small-text" />
     </p>
     <p>
-      <label for="<?php echo $field_image_spacing; ?>"><?php _e('image spacing (default = 0.5rem)'); ?></label>
-      <input name="<?php echo $field_image_spacing; ?>" type="number" step="0.1" min="0" id="<?php echo $field_image_spacing; ?>" value="<?php echo get_option($opt_image_spacing); ?>" class="small-text" />
+        <label for="<?php echo $field_image_spacing; ?>"><?php _e('image spacing (default = 0.5rem)'); ?></label>
+        <input name="<?php echo $field_image_spacing; ?>" type="number" step="0.1" min="0" id="<?php echo $field_image_spacing; ?>" value="<?php echo get_option($opt_image_spacing); ?>" class="small-text" />
     </p>
     <p>
-      <label for="<?php echo $field_spaced_spacing; ?>"><?php _e('spaced-grid spacing (default = 2rem)'); ?></label>
-      <input name="<?php echo $field_spaced_spacing; ?>" type="number" step="0.1" min="0" id="<?php echo $field_spaced_spacing; ?>" value="<?php echo get_option($opt_spaced_spacing); ?>" class="small-text" />
+        <label for="<?php echo $field_spaced_spacing; ?>"><?php _e('spaced-grid spacing (default = 1.5rem)'); ?></label>
+        <input name="<?php echo $field_spaced_spacing; ?>" type="number" step="0.1" min="0" id="<?php echo $field_spaced_spacing; ?>" value="<?php echo get_option($opt_spaced_spacing); ?>" class="small-text" />
     </p>
     
 
     
     <p class="submit">
-    <input type="submit" name="Submit" class="button-primary" value="<?php esc_attr_e('Save Changes') ?>" />
+        <input type="submit" name="Submit" class="button-primary" value="<?php esc_attr_e('Save Changes') ?>" />
     </p>
     
-    </form>
+</form>
 
     <?php
-}
+    }
 
 
     
@@ -293,52 +293,54 @@ function bsportfolio_settings() {
         ));
 
         $wp_customize->add_setting('bsp_menu_bar_color', array(
-            'default'           => '#888',
+            'default'           => '#FFF',
             'sanitize_callback' => 'sanitize_hex_color',
         ));
         $wp_customize->add_control('bsp_menu_bar_color', array(
-            'label' => 'Menu Bar Color',
+            'label' => 'Menu Bar',
             'section' => 'bsp_theme_colors',
             'type' => 'text',
-            ));
+        ));
 
-        /* $wp_customize->add_setting('bsp_menu_bar_text_color', array(
-         *     'default'           => '#fff',
-         *     'sanitize_callback' => 'sanitize_hex_color',
-         * ));
-         * $wp_customize->add_control('bsp_menu_bar_text_color', array(
-         *     'label' => 'Menu Bar Text Color',
-         *     'section' => 'bsp_theme_colors',
-         *     'type' => 'text',
-         * ));
+        $wp_customize->add_setting('bsp_menu_bar_lines_color', array(
+            'default'           => '#000',
+            'sanitize_callback' => 'sanitize_hex_color',
+        ));
+        $wp_customize->add_control('bsp_menu_bar_lines_color', array(
+            'label' => 'Menu Bar Lines',
+            'section' => 'bsp_theme_colors',
+            'type' => 'text',
+        ));
 
-         * $wp_customize->add_setting('bsp_menu_bar_rollover_color', array(
-         *     'default'           => '#ddd',
-         *     'sanitize_callback' => 'sanitize_hex_color',
-         * ));
-         * $wp_customize->add_control('bsp_menu_bar_rollover_color', array(
-         *     'label' => 'Menu Bar Text Link Roll-Over Color',
-         *     'section' => 'bsp_theme_colors',
-         *     'type' => 'text',
-         * ));
-         */
-        /* $wp_customize->('colors', array(
-         *     'title'    => __('Colors', 'bsportfolio-beta'),
-         *     'priority' => '30',
-         *     ));
-         */
-        
-        /* $wp_customize->add_control(
-	   new WP_Customize_Color_Control(
-	   $wp_customize,
-	   'menu_bar_color',
-	   array(
-	   'label'      => __('Menu Bar Color', 'mytheme'),
-	   'section'    => 'bsp_theme_colors',
-	   'settings'   => 'bsp_menu_bar_color',
-	   ))
-         * );
-         */
+        $wp_customize->add_setting('bsp_menu_bar_link_color', array(
+            'default'           => '#000',
+            'sanitize_callback' => 'sanitize_hex_color',
+        ));
+        $wp_customize->add_control('bsp_menu_bar_link_color', array(
+            'label' => 'Menu Bar Link Text',
+            'section' => 'bsp_theme_colors',
+            'type' => 'text',
+        ));
+
+        $wp_customize->add_setting('bsp_menu_bar_link_hover_color', array(
+            'default'           => '#088',
+            'sanitize_callback' => 'sanitize_hex_color',
+        ));
+        $wp_customize->add_control('bsp_menu_bar_link_hover_color', array(
+            'label' => 'Menu Bar Link Text Hover',
+            'section' => 'bsp_theme_colors',
+            'type' => 'text',
+        ));
+
+        $wp_customize->add_setting('bsp_menu_bar_text_color', array(
+            'default'           => '#888',
+            'sanitize_callback' => 'sanitize_hex_color',
+        ));
+        $wp_customize->add_control('bsp_menu_bar_text_color', array(
+            'label' => 'Menu Bar Inactive Text',
+            'section' => 'bsp_theme_colors',
+            'type' => 'text',
+        ));
     }
     
     add_action('customize_register', 'bsportfolio_theme_customize_register');
@@ -366,9 +368,15 @@ function bsportfolio_settings() {
         }
         else if(preg_match("/#/",$color_code)) {
             $hex = str_replace("#","",$color_code);
-            $r = (strlen($hex) == 3)? hexdec(substr($hex,0,1).substr($hex,0,1)):hexdec(substr($hex,0,2));
-            $g = (strlen($hex) == 3)? hexdec(substr($hex,1,1).substr($hex,1,1)):hexdec(substr($hex,2,2));
-            $b = (strlen($hex) == 3)? hexdec(substr($hex,2,1).substr($hex,2,1)):hexdec(substr($hex,4,2));
+            $r = (strlen($hex) == 3) ?
+                 hexdec(substr($hex,0,1).substr($hex,0,1)) :
+                 hexdec(substr($hex,0,2));
+            $g = (strlen($hex) == 3) ?
+                 hexdec(substr($hex,1,1).substr($hex,1,1)) :
+                 hexdec(substr($hex,2,2));
+            $b = (strlen($hex) == 3) ?
+                 hexdec(substr($hex,2,1).substr($hex,2,1)) :
+                 hexdec(substr($hex,4,2));
             $r = round($r - ($r*$percentage_adjuster));
             $g = round($g - ($g*$percentage_adjuster));
             $b = round($b - ($b*$percentage_adjuster));
@@ -389,29 +397,34 @@ function bsportfolio_settings() {
         $hover_color = lighten_or_darken(get_theme_mod('bsp_menu_bar_color'), -60); // lighten by 50%
         
     ?>
-      <style type="text/css">
-       header.site-header, .single-post-pagination {
-           Background: <?php echo get_theme_mod('bsp_menu_bar_color', '#888'); ?>;
-       }
-       header a:hover, .single-post-pagination a:hover {
-           color: <?php echo $hover_color ?>;
-       }
-       
-       article.grid-horizontal-flow-resize, article.grid-spaced {
-           height: <?php echo get_option($opt_image_size) ?>px;
-       }
-       article.grid-spaced {
-           width: <?php echo get_option($opt_image_size) ?>px;
-           padding: <?php echo get_option($opt_spaced_spacing) ?>rem;
-       }
+        <style type="text/css">
+         .bsp-header {
+             Background: <?php echo get_theme_mod('bsp_menu_bar_color', '#FFF') ?>;
+             color: <?php echo get_theme_mod('bsp_menu_bar_text_color', '#888') ?>;
+             border-color: <?php echo get_theme_mod('bsp_menu_bar_lines_color', '#000') ?>;
+         }
+         .bsp-header a:link {
+             color: <?php echo get_theme_mod('bsp_menu_bar_link_color', '#000') ?>;
+         }
+         .bsp-header a:hover {
+             color: <?php echo get_theme_mod('bsp_menu_bar_link_hover_color', '#088') ?>;
+         }
+         
+         article.grid-horizontal-flow-resize, article.grid-spaced {
+             height: <?php echo get_option($opt_image_size) ?>px;
+         }
+         article.grid-spaced {
+             width: <?php echo get_option($opt_image_size) ?>px;
+             padding: <?php echo get_option($opt_spaced_spacing) ?>rem;
+         }
 
-        article.grid-horizontal-flow, article.grid-horizontal-flow-resize {
-           margin: <?php echo get_option($opt_image_spacing) ?>rem;
-       }
+         article.grid-horizontal-flow, article.grid-horizontal-flow-resize {
+             margin: <?php echo get_option($opt_image_spacing) ?>rem;
+         }
 
-      </style>
+        </style>
     <?php
     }
     add_action('wp_head', 'bsportfolio_theme_customize_css');
     
-?>
+    ?>

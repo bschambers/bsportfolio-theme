@@ -82,11 +82,11 @@ else : ?>
     // Only show pagination for Posts (not for Pages).
     // Tooltip is styled to be invisible except for on mouse rollover.
     if (!is_page()) : ?>
-    <div class="single-post-pagination tooltip">WORKS:
+    <div class="single-post-pagination tooltip bsp-header">WORKS:
         <span class="single-post-pagination-link"><?php next_post_link($format = '%link', $link = 'PREV'); ?>&nbsp;</span>
         |
         <span class="single-post-pagination-link"><?php previous_post_link($format = '%link', $link = 'NEXT'); ?>&nbsp;</span>
-        <span class="tooltip-text">navigate with mouse or left/right cursor keys</span>
+        <span class="tooltip-text">navigate with left/right cursor keys</span>
 
         <script type="text/javascript">
          <!--
