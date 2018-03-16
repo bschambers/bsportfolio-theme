@@ -29,24 +29,25 @@
 
             <header id="masthead" class="site-header" role="banner">
 
-                <div class="menu-bar">
+                <div class="menu-bar clearfix">
                     <span class="site-header-content">
-                        <!-- site title links to home page -->
+                        
                         <a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
                             <span class="site-title">
                                 <?php bloginfo('name'); ?>
                             </span>
                         </a>
 
-                    <!--
+                        <?php 
+                        /*
                          * ADD STATIC PAGES TO MENU BAR:
                          * Stylesheet specifies INLINE display style using 'li.page_item' (makes list horizontal).
-                         * 'title_li' = '' gets rid of the default heading, so that it will sit properly inline.
-                         * 'sort_column'... sorts pages order by publication date.
-                    -->
-                    <?php echo wp_list_pages(array(
-                        'title_li' => '',
-                        'sort_column' => 'post_date')); ?>
+                         * 'title_li' = '' gets rid of bullet points.
+                         * 'sort_column' sorts pages order by publication date.
+                         */
+                        echo wp_list_pages(array(
+                            'title_li' => '',
+                            'sort_column' => 'post_date')); ?>
 
                     <?php if (get_option('bsp_show_search')) {
                         echo '<span id="nav-menu-search-form">';

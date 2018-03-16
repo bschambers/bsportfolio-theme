@@ -119,13 +119,12 @@ header a:active {
 
 /*-------------------------- SEARCH FORM ---------------------------*/
 
-span#nav-menu-search-form {
-    float: right;
-    margin-top: 1em;
+form.search-form {
+    display: inline-block;
 }
 
-input {
-    border: none;
+span#nav-menu-search-form {
+    float: right;
 }
 
 
@@ -290,15 +289,8 @@ article.single-page-content {
         position: absolute;
     }
     
-/*     span#nav-menu-search-form { */
-/*         float: none; */
-/*         margin-top: 0; */
-/*     } */
-    
-/*     .single-post-pagination { */
-/*         position: absolute; */
-/*         width: 100% */
-/*         padding-left: 0; */
-/*         padding-right: 0; */
-/*     } */
+    span#nav-menu-search-form {
+        float: none;
+        margin-top: 0;
+    }
 }
