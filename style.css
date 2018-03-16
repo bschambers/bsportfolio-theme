@@ -293,4 +293,11 @@ article.single-page-content {
         float: none;
         margin-top: 0;
     }
+
+    /* make sure that image is no wider than screen */
+    article.single-page-content img {
+        max-width: 100%;
+        height: auto;
+    }
+    
 }
