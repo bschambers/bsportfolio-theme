@@ -398,15 +398,15 @@ echo "<h2>" . __('BSPortfolio Theme Settings', 'bsportfolio-settings') . "</h2>"
         
     ?>
         <style type="text/css">
-         .bsp-header {
+         header.site-header {
              Background: <?php echo get_theme_mod('bsp_menu_bar_color', '#FFF') ?>;
              color: <?php echo get_theme_mod('bsp_menu_bar_text_color', '#888') ?>;
              border-color: <?php echo get_theme_mod('bsp_menu_bar_lines_color', '#000') ?>;
          }
-         .bsp-header a:link {
+         header.site-header a:link {
              color: <?php echo get_theme_mod('bsp_menu_bar_link_color', '#000') ?>;
          }
-         .bsp-header a:hover {
+         header.site-header a:hover {
              color: <?php echo get_theme_mod('bsp_menu_bar_link_hover_color', '#088') ?>;
          }
          

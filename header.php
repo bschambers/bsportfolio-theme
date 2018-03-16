@@ -27,18 +27,19 @@
 
 
 
-            <header id="masthead" class="site-header bsp-header" role="banner">
+            <header id="masthead" class="site-header" role="banner">
 
-                <div class="header-links">
-                    <!-- DISPLAY SITE NAME (AND LINK TO HOME PAGE) -->
-                    <h1 class="site-title">
+                <div class="menu-bar">
+                    <span class="site-header-content">
+                        <!-- site title links to home page -->
                         <a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
-                            <?php bloginfo('name'); ?>
+                            <span class="site-title">
+                                <?php bloginfo('name'); ?>
+                            </span>
                         </a>
-                    </h1>
 
                     <!--
-                         ADD STATIC PAGES TO MENU BAR:
+                         * ADD STATIC PAGES TO MENU BAR:
                          * Stylesheet specifies INLINE display style using 'li.page_item' (makes list horizontal).
                          * 'title_li' = '' gets rid of the default heading, so that it will sit properly inline.
                          * 'sort_column'... sorts pages order by publication date.
@@ -47,13 +48,42 @@
                         'title_li' => '',
                         'sort_column' => 'post_date')); ?>
 
-
                     <?php if (get_option('bsp_show_search')) {
                         echo '<span id="nav-menu-search-form">';
                         get_search_form(true);
                         echo '</span>';
                     } ?>
-                </div>
+                    </span>
+                </div><!-- menu-bar -->
+
+                <?php
+                // only show pagination for single-posts (not for page)
+                if (is_single()) : ?>
+
+                    <div class="posts-pagination">
+                        <span class="site-header-content">
+                        WORKS:
+                        <span><?php next_post_link($format = '%link', $link = 'PREV'); ?>&nbsp;</span>
+                        |
+                        <span><?php previous_post_link($format = '%link', $link = 'NEXT'); ?>&nbsp;</span>
+                        <script type="text/javascript">
+                         <!--
+                          /* Script for enabling cursor key navigation taken from here:
+                             https://helloacm.com/how-to-use-keyboard-arrow-keys-for-wordpress-posts-navigation/ */
+                             document.onkeydown = function (e) {
+                                 var e = e || event,
+                                     keycode = e.which || e.keyCode;
+                                 if (keycode == 37)
+                                     location = "<?php echo get_permalink(get_next_post()); ?>";
+                                 if (keycode == 39)
+                                     location = "<?php echo get_permalink(get_previous_post()); ?>";
+                             }
+                         -->
+                        </script>
+                        </span>
+                    </div> <!-- posts-pagination -->
+
+                <?php endif; ?>
             </header>
 
             <div id="content" class="site-content">

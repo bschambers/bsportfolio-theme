@@ -1,7 +1,7 @@
 <?php
 
 /*
-   THEME: bsportfolio
+   THEME: BSPortfolio
 
    SEE: functions.php --> custom_dashboard_help() for usage guidelines
 
@@ -9,20 +9,8 @@
 
    TODO:
  * menu bar zooming - wrap around and resize
- * image galleries - row of thumbnails switch image
-   LOW PRIORITY:
- * style search box (like main menu bar text) (magnifying glass icon?)
  * search results page - show featured image & snippet of text on right (summary below when zoomed a lot)
- * keyboard control - left/right cursor
- * title bar - add 'tags' link
- * home page pagination - tidy up styling
- * grid styles - gallery-preview with micro thumbnails
-   MAYBE:
- * News-post (automatically tweet?)
- * tag images (need plugin ? wordpress media tagger...)
- * style tags nicely
- * If NO 'featured-image', show start of text instead...
-   
+
    
    
    MENU BAR:

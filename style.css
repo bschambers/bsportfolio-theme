@@ -17,7 +17,6 @@ Text Domain: bsportfolio
 
 html {
     font-family: arial;
-    /* font-size: 100%; */
     -webkit-box-sizing: border-box; /* for old browser support */
     -moz-box-sizing: border-box; /* for old browser support */
     box-sizing: border-box; /* fixes quirky box-sizing behaviour */
@@ -39,11 +38,9 @@ html {
 }
 
 body {
-    /* margin: auto; /\* centered - margin is evely distributed *\/ */
-    /* width: 85%; */
     padding-left: 8%;
     padding-right: 8%;
-    padding-top: 4rem; /* leave room for the menu bar */
+    padding-top: 3rem; /* leave room for the menu bar */
 }
 
 .clearfix {
@@ -52,94 +49,75 @@ body {
 
 
 
-/*----------------------------------------------------------------------------*/
+/*----------------------------- HEADER -----------------------------*/
 
-/* MENU BAR */
-header.site-header {
-    border-bottom: 1px solid;
+.site-header-content {
     padding-left: 8%;
     padding-right: 8%;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    display: block;
+    margin: 0;
+}
+
+header.site-header {
     position: fixed;
-    left: 0;
-    right: 0;
     top: 0;
-    /* height: 3em; */
-    /* border-bottom: white 1px solid; */
-}
-
-header h1.site-title {
-    display: inline;
-    size: 2rem;
-}
-
-header li.page_item {
-    display: inline;
-}
-
-header.site-header li.page_item {
-    display: inline-block;
-}
-
-/* insert '|' before each static page link */
-header.site-header li.page_item::before {
-    content: " | ";
-}
-
-.bsp-header a:link {
-    text-decoration: none; /* remove underline from links */
-    color: black;
-}
-
-.bsp-header a:visited {
-    text-decoration: none; /* remove underline from links */
-    color: black;
-}
-
-.bsp-header a:hover {
-    text-decoration: none; /* remove underline from links */
-    color: #088;
-}
-
-.bsp-header a:active {
-    text-decoration: none; /* remove underline from links */
-    color: black;
-}
-
-
-
-/*----------------------------------------------------------------------------*/
-
-/* SINGLE-POST PAGINATION */
-
-.single-post-pagination {
-    color: black;
-    display: block;
-    Background: #888;
-    position: fixed;
-    top: 4rem;
     left: 0;
     right: 0;
     margin: 0;
-    padding-left: 8%;
-    padding-right: 8%;
-    border-top: 1px solid;
+    padding-bottom: 0;
+    display: block;
+}
+
+header.site-header div.menu-bar {
     border-bottom: 1px solid;
+    margin: 0;
 }
 
-span.single-post-pagination-link {
+header.site-header span.site-title {
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+header.site-header div.posts-pagination {
+    border-bottom: 1px solid;
+    margin: 0;
+}
+
+header .site-title {
     display: inline-block;
-    width:  4em;
-    text-align: center;
+}
+
+header li.page_item {
+    display: inline-block;
+}
+
+/* insert vertical bar before each static page link */
+header li.page_item::before {
+    content: " | ";
+}
+
+header a {
+    text-decoration: none;
+}
+
+header a:link {
+    color: black;
+}
+
+header a:visited {
+    color: black;
+}
+
+header a:hover {
+    color: #088;
+}
+
+header a:active {
+    color: black;
 }
 
 
 
-/*----------------------------------------------------------------------------*/
-
-/* SEARCH FORM */
+/*-------------------------- SEARCH FORM ---------------------------*/
 
 span#nav-menu-search-form {
     float: right;
@@ -152,9 +130,7 @@ input {
 
 
 
-/*----------------------------------------------------------------------------*/
-
-/* SEARCH RESULTS */
+/*------------------------- SEARCH RESULTS -------------------------*/
 
 span.search-results-image img {
     /* display: inline-block; */
@@ -164,9 +140,7 @@ span.search-results-image img {
 
 
 
-/*----------------------------------------------------------------------------*/
-
-/* HOME PAGE IMAGE GRID */
+/*---------------------- HOME PAGE IMAGE GRID ----------------------*/
 
 a.thumbs-grid {
     text-decoration: none; /* gets rid of the annoying dashes in between images in the grid */
@@ -179,14 +153,12 @@ a.thumbs-grid {
 article.grid-horizontal-flow {
     display: inline-block;
     vertical-align: top;
-    padding: none; /* space inside border */
-    margin: 0.5rem; /* space outside border */
-    /* height: 300px; */
+    padding: none;
+    margin: 0.5rem;
 }
+
 article.grid-horizontal-flow img {
     display: block;
-    /* height: 100%; */
-    /* width: auto; */
 }
 
 
@@ -196,10 +168,11 @@ article.grid-horizontal-flow img {
 article.grid-horizontal-flow-resize {
     display: inline-block;
     vertical-align: top;
-    padding: none; /* space inside border */
-    margin: 0.5rem; /* space outside border */
-    height: 300px;
+    padding: none;
+    margin: 0.5rem;
+    height: 300px; /* customised by option: image size */
 }
+
 article.grid-horizontal-flow-resize img {
     display: block;
     height: 100%;
@@ -211,15 +184,14 @@ article.grid-horizontal-flow-resize img {
 /* grid-spaced */
 
 article.grid-spaced {
-    /* border: 1px solid blue; */
     display: inline-block;
     text-align: center;
     padding: 1.5rem; /* customised by option: spaced-grid spacing */
     height: 300px; /* customised by option: image size */
     width: 300px; /* customised by option: image size */
 }
+
 article.grid-spaced img {
-    /* border: 1px solid red; */
     vertical-align: middle;
     max-width: 100%;
     max-height: 100%;
@@ -268,6 +240,14 @@ img.post-preview-thumb {
 
 
 
+/*----------------------- POST/PAGE CONTENT ------------------------*/
+
+article.single-page-content {
+    padding: 0;
+}
+
+
+
 /*---------------- MEDIA RULES (for narrow display) ----------------*/
 
 /*
@@ -278,36 +258,37 @@ img.post-preview-thumb {
 @media screen and (max-width: 1400px) {
 
     body {
-        padding-left: 0;
-        padding-right: 0;
+        padding-left: 1rem;
+        padding-right: 1rem;
     }
     
-    header.site-header {
+    header .site-header-content {
         padding-left: 1rem;
         padding-right: 1rem;
     }
 
-    .single-post-pagination {
-        padding-left: 1rem;
-        padding-right: 1rem;
-    }
 }
 
-/* /\* */
-/*  * Very narrow screen: */
-/*  * */
-/*  * - don't anchor title bar to top of screen */
-/*  *\/ */
-/* @media screen and (max-width: 800px) { */
+/*
+ * Very narrow screen:
+ *
+ * - don't anchor title bar to top of screen
+ */
+@media screen and (max-width: 800px) {
 
-/*     body { */
-/*         padding-left: 0; */
-/*         padding-right: 0; */
-/*     } */
+    body {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    header .site-header-content {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
 
-/*     header.site-header { */
-/*         position: absolute; */
-/*     } */
+    header.site-header {
+        position: absolute;
+    }
     
 /*     span#nav-menu-search-form { */
 /*         float: none; */
@@ -320,4 +301,4 @@ img.post-preview-thumb {
 /*         padding-left: 0; */
 /*         padding-right: 0; */
 /*     } */
-/* } */
+}

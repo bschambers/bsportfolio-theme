@@ -78,37 +78,8 @@ elseif (is_search()) : ?>
  */
 else : ?>
 
-    <?php
-    // Only show pagination for Posts (not for Pages).
-    // Tooltip is styled to be invisible except for on mouse rollover.
-    if (!is_page()) : ?>
-    <div class="single-post-pagination tooltip bsp-header">WORKS:
-        <span class="single-post-pagination-link"><?php next_post_link($format = '%link', $link = 'PREV'); ?>&nbsp;</span>
-        |
-        <span class="single-post-pagination-link"><?php previous_post_link($format = '%link', $link = 'NEXT'); ?>&nbsp;</span>
-        <span class="tooltip-text">navigate with left/right cursor keys</span>
-
-        <script type="text/javascript">
-         <!--
-         /* Script for enabling cursor key navigation taken from here:
-            https://helloacm.com/how-to-use-keyboard-arrow-keys-for-wordpress-posts-navigation/ */
-         document.onkeydown = function (e) {
-             var e = e || event, 
-                 keycode = e.which || e.keyCode; 
-             if (keycode == 37)
-                 location = "<?php echo get_permalink(get_next_post()); ?>";
-             if (keycode == 39)
-                 location = "<?php echo get_permalink(get_previous_post()); ?>";
-         }
-       -->
-      </script>
-      
-    </div> <!-- single-post-pagination -->
-    <br/>
-    <?php endif; ?>
-
     <?php // Page content - same for Post and Page. ?>
-    <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+    <article id="post-<?php the_ID(); ?>" <?php post_class("single-page-content"); ?>>
         <header class="entry-header">
             <?php the_title('<h1 class="entry-title">', '</h1>'); ?>
         </header>
