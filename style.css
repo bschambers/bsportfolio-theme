@@ -117,6 +117,14 @@ header a:active {
 
 
 
+/*----------------------------- FOOTER -----------------------------*/
+
+footer.site-footer {
+    padding-bottom: 5rem;
+}
+
+
+
 /*-------------------------- SEARCH FORM ---------------------------*/
 
 form.search-form {
@@ -131,8 +139,19 @@ span#nav-menu-search-form {
 
 /*------------------------- SEARCH RESULTS -------------------------*/
 
-span.search-results-image img {
-    /* display: inline-block; */
+div.search-results {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+div.search-results img {
+    float: left;
+    margin: 1rem;
+}
+
+div.search-results img.no-image-image {
+    height: 8rem;
+    width: auto;
     float: left;
     margin: 1rem;
 }
@@ -299,5 +318,18 @@ article.single-page-content {
         max-width: 100%;
         height: auto;
     }
+
+    div.search-results img {
+        float: none; 
+        max-width: 100%;
+        height: auto;
+        margin: 0;
+    }
     
+    div.search-results img.no-image-image {
+        height: 8rem;
+        width: auto;
+        float: none;
+        margin: 0;
+    }
 }

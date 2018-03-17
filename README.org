@@ -3,8 +3,10 @@
 BSPortfolio is a clean, fairly simple portfolio theme for Wordpress.
 
 Features:
-- Horizontal menu bar header at top contains link to home page and then all other static pages.
-- Home page image-grid. Featured image of each post is shown, and links to the actual post.
+- Horizontal menu bar header at top contains link to home page and then all
+  other static pages.
+- Home page image-grid. Featured image of each post is shown, and links to the
+  actual post.
 - Cursor key navigation between posts.
 
 Customisation Options:
@@ -14,3 +16,22 @@ Customisation Options:
 
 Currently not supported:
 - Comments.
+
+* Usage
+
+** Image Guidlines
+
+Sizes?
+   
+** Front Page (Image Grid)
+
+Make sure that you set a featured image for each Post! If there is no featured
+image, the site icon will be displayed. If there is also no site icon, warning
+text appears saying 'NO FEATURED IMAGE'.
+
+You should decide on a size for the featured images before you start uploading
+them. The theme will reduce larger images for screen, but will be wastefully a
+lot of data.
+
+You can set a featured image also for Pages if you like, but the only time they
+will be used is for the search result page.

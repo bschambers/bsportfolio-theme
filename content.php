@@ -26,9 +26,14 @@ if (is_home() || is_archive()) : ?>
             if (has_post_thumbnail()) : ?>
                 <?php the_post_thumbnail(); ?>
             <?php else: ?>
-                <b style="color: red">NO FEATURED IMAGE!</b>
+                <?php /* show site icon if there is no featured-image */
+                if (has_site_icon()) : ?>
+                    <img height="50" class="no-image-image" src="<?php echo get_site_icon_url() ?>" />
+                <?php else : ?>
+                    <b style="color: red">NO FEATURED IMAGE!</b>
+                <?php endif; ?>
             <?php endif; ?>
-        </article><!-- gallery-preview -->
+        </article>
     </a><!-- link to post -->
 
 
@@ -40,45 +45,34 @@ if (is_home() || is_archive()) : ?>
  */
 elseif (is_search()) : ?>
 
-    <table>
-        <tr>
-            <td>
-                
-                <div id="post-<?php the_ID(); ?>" <?php post_class("search-results, clearfix") ?>>
-                    <a class="search-results" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-                        <span id="post-<?php the_ID(); ?>" <?php post_class("search-results-image") ?>>
-                            <?php
-                            // INSERT FEATURED IMAGE (IF THERE IS ONE)
-                            if (has_post_thumbnail()) : ?>
-                                <?php the_post_thumbnail(); ?>
-                            <?php else: ?>
-                                <b style="color: red">NO FEATURED IMAGE!</b>
-                            <?php endif; ?>
+    <div id="post-<?php the_ID(); ?>" <?php post_class("search-results clearfix") ?>>
+        <a class="search-results" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
+            <?php
+            if (has_post_thumbnail()) : ?>
+                <?php the_post_thumbnail(); ?>
+            <?php else: ?>
+                <?php /* show site icon if there is no featured-image */
+                if (has_site_icon()) : ?>
+                    <img height="50" class="no-image-image" src="<?php echo get_site_icon_url() ?>" />
+                    <?php else : ?>
+                    <b style="color: red">NO FEATURED IMAGE!</b>
+                <?php endif; ?>
+            <?php endif; ?>
+            <h2><?php the_title() ?></h2>
+        </a><!-- link to post -->
+        <?php the_excerpt() ?>
+    </div>
 
-                            <p><?php the_title('<h2>', '</h2>') ?></p>
-                            
-        </article><!-- gallery-preview -->
-    </a><!-- link to post -->
 
-    <?php the_excerpt() ?>
-
-                </div>
-
-            </td>
-        </tr>
-    </table>
-
-    
 
 <?php
 /*
  * SINGLE-POST OR PAGE:
  * Display whole content in standard full-width layout.
- * Show pagination for Posts but not Pages.
  */
 else : ?>
 
-    <?php // Page content - same for Post and Page. ?>
+    <?php /* Page content - same for Post and Page */ ?>
     <article id="post-<?php the_ID(); ?>" <?php post_class("single-page-content"); ?>>
         <header class="entry-header">
             <?php the_title('<h1 class="entry-title">', '</h1>'); ?>
@@ -88,7 +82,7 @@ else : ?>
             the_content();
             if (get_option('bsp_show_tags')) { the_tags(); }
             ?>
-        </div> <!-- entry-content -->
+        </div>
     </article>
 
 <?php endif; ?>
