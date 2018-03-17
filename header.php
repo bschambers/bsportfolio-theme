@@ -62,15 +62,16 @@
                 if (is_single()) : ?>
 
                     <div class="posts-pagination">
-                        <span class="site-header-content">
-                        WORKS:
-                        <span><?php next_post_link($format = '%link', $link = 'PREV'); ?>&nbsp;</span>
-                        |
-                        <span><?php previous_post_link($format = '%link', $link = 'NEXT'); ?>&nbsp;</span>
-                        <script type="text/javascript">
-                         <!--
-                          /* Script for enabling cursor key navigation taken from here:
-                             https://helloacm.com/how-to-use-keyboard-arrow-keys-for-wordpress-posts-navigation/ */
+                        <span class="site-header-content">WORKS:
+                            <span class="posts-pagination-link"><?php next_post_link($format = '%link', $link = 'PREV'); ?>&nbsp;</span>
+                            |
+                            <span class="posts-pagination-link"><?php previous_post_link($format = '%link', $link = 'NEXT'); ?>&nbsp;</span>
+                            <script type="text/javascript">
+                             <!--
+                             /*
+                              * Script for enabling cursor key navigation taken from here:
+                              * https://helloacm.com/how-to-use-keyboard-arrow-keys-for-wordpress-posts-navigation/
+                              */
                              document.onkeydown = function (e) {
                                  var e = e || event,
                                      keycode = e.which || e.keyCode;

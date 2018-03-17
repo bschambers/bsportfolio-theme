@@ -47,6 +47,10 @@ body {
     overflow: auto;
 }
 
+.hidden {
+    visibility: hidden;
+}
+
 
 
 /*----------------------------- HEADER -----------------------------*/
@@ -80,6 +84,12 @@ header.site-header span.site-title {
 header.site-header div.posts-pagination {
     border-bottom: 1px solid;
     margin: 0;
+}
+
+/* posts-pagination-link span is same width, even when there is no link */
+header.site-header span.posts-pagination-link {
+    display: inline-block;
+    width: 3em;
 }
 
 header .site-title {
