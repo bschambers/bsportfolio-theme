@@ -119,6 +119,7 @@ function custom_dashboard_help() {
 
 
 // database option names
+$opt_meta_description = 'bsp_meta_description';
 $opt_tags = 'bsp_show_tags';
 $opt_search = 'bsp_show_search';
 $opt_grid_style = 'bsp_grid_style';
@@ -144,10 +145,11 @@ function bsportfolio_settings() {
     }
 
     // make global variables available
-    global $opt_tags, $opt_search, $opt_grid_style,
+    global $opt_meta_description, $opt_tags, $opt_search, $opt_grid_style,
     $opt_image_size, $opt_image_spacing, $opt_spaced_spacing;
-    
+
     // field names
+    $field_meta_description = "bsp-meta-description";
     $field_tags = "bsp-show-tags";
     $field_search = "bsp-show-search";
     $field_grid = 'bsp-grid-style';
@@ -158,6 +160,7 @@ function bsportfolio_settings() {
     $hidden_field = 'bsp_submit_hidden';
 
     // read in existing values from the database
+    $meta_description = get_option($opt_meta_description);
     $show_tags = get_option($opt_tags);
     $show_search = get_option($opt_search);
     $grid_style = get_option($opt_grid_style);
@@ -169,6 +172,7 @@ function bsportfolio_settings() {
     // if they did, this hidden field will be set to 'Y'
     if (isset($_POST[$hidden_field]) && $_POST[$hidden_field] == 'Y') {
         // read the posted values
+        $meta_description = $_POST[$field_meta_description];
         $show_tags = $_POST[$field_tags];
         $show_search = $_POST[$field_search];
         $grid_style = $_POST[$field_grid];
@@ -177,6 +181,7 @@ function bsportfolio_settings() {
         $spaced_spacing = $_POST[$field_spaced_spacing];
         // save the posted values in the database...
         // ... if the option doesn't exist, update_option will create it automatically
+        update_option($opt_meta_description, $meta_description);
         update_option($opt_tags, $show_tags);
         update_option($opt_search, $show_search);
         update_option($opt_grid_style, $grid_style);
@@ -187,6 +192,7 @@ function bsportfolio_settings() {
         // NOTE: _e() is a translation function... see documentation...
 ?>
     <div class='updated'><p><strong><?php _e('Settings saved.', 'bsportfolio-settings'); ?></strong></p>
+        <p>meta-description = <?php echo $meta_description; ?></p>
         <p>show-tags = <?php echo $show_tags; ?></p>
         <p>show-search = <?php echo $show_search; ?></p>
         <p>grid-style = <?php echo $grid_style; ?></p>
@@ -211,13 +217,19 @@ echo "<h2>" . __('BSPortfolio Theme Settings', 'bsportfolio-settings') . "</h2>"
 
 
 
+    <p><h2>Meta 'description' tag</h2></p>
+
+    <p><input type="text" name="<?php echo $field_meta_description; ?>" value="<?php echo $meta_description; ?>"/></p>
+
+
+
     <p><h2>Tags and Search</h2></p>
 
     <p><input type='checkbox' name='<?php echo $field_tags; ?>' value="1" <?php checked('1',  $show_tags); ?>/>Show tags</p>
     <p><input type='checkbox' name='<?php echo $field_search; ?>' value='1' <?php checked('1',  $show_search); ?>/>Show search box</p>
 
 
-    
+
     <p><h2>Home Page Grid Style</h2></p>
 
     <?php // a bit of extra code required to display saved value on radio buttons
@@ -248,7 +260,7 @@ echo "<h2>" . __('BSPortfolio Theme Settings', 'bsportfolio-settings') . "</h2>"
     </p>
 
 
-    
+
     <p><h2>Grid Style Options</h2></p>
 
     <p>
@@ -263,29 +275,29 @@ echo "<h2>" . __('BSPortfolio Theme Settings', 'bsportfolio-settings') . "</h2>"
         <label for="<?php echo $field_spaced_spacing; ?>"><?php _e('spaced-grid spacing (default = 1.5rem)'); ?></label>
         <input name="<?php echo $field_spaced_spacing; ?>" type="number" step="0.1" min="0" id="<?php echo $field_spaced_spacing; ?>" value="<?php echo get_option($opt_spaced_spacing); ?>" class="small-text" />
     </p>
-    
 
-    
+
+
     <p class="submit">
         <input type="submit" name="Submit" class="button-primary" value="<?php esc_attr_e('Save Changes') ?>" />
     </p>
-    
+
 </form>
 
     <?php
     }
 
 
-    
 
-    
+
+
     /*
-       NOTE:
-       - before a section is visible, it must contain at least one setting
-       - before a setting is visible, it must have an associated control
+     * NOTE:
+     * - before a section is visible, it must contain at least one setting
+     * - before a setting is visible, it must have an associated control
      */
     function bsportfolio_theme_customize_register($wp_customize) {
-        
+
         $wp_customize->add_section('bsp_theme_colors', array(
             'title' => 'Colors',
             'description' => 'Change colors for BS Portfolio theme.',
@@ -342,11 +354,11 @@ echo "<h2>" . __('BSPortfolio Theme Settings', 'bsportfolio-settings') . "</h2>"
             'type' => 'text',
         ));
     }
-    
+
     add_action('customize_register', 'bsportfolio_theme_customize_register');
-    
-    
-    
+
+
+
     /**
      * Adjust color lightness by percentage amount for both HEX and RGB values.
      *
@@ -361,7 +373,7 @@ echo "<h2>" . __('BSPortfolio Theme Settings', 'bsportfolio-settings') . "</h2>"
             $r = $color_code["r"] - (round($color_code["r"])*$percentage_adjuster);
             $g = $color_code["g"] - (round($color_code["g"])*$percentage_adjuster);
             $b = $color_code["b"] - (round($color_code["b"])*$percentage_adjuster);
-            
+
             return array("r"=> round(max(0,min(255,$r))),
                          "g"=> round(max(0,min(255,$g))),
                          "b"=> round(max(0,min(255,$b))));
@@ -380,7 +392,7 @@ echo "<h2>" . __('BSPortfolio Theme Settings', 'bsportfolio-settings') . "</h2>"
             $r = round($r - ($r*$percentage_adjuster));
             $g = round($g - ($g*$percentage_adjuster));
             $b = round($b - ($b*$percentage_adjuster));
-            
+
             return "#".str_pad(dechex( max(0,min(255,$r)) ),2,"0",STR_PAD_LEFT)
                   .str_pad(dechex( max(0,min(255,$g)) ),2,"0",STR_PAD_LEFT)
                   .str_pad(dechex( max(0,min(255,$b)) ),2,"0",STR_PAD_LEFT);
@@ -388,14 +400,14 @@ echo "<h2>" . __('BSPortfolio Theme Settings', 'bsportfolio-settings') . "</h2>"
     }
 
 
-    
+
     function bsportfolio_theme_customize_css() {
         global $opt_image_size, $opt_image_spacing, $opt_spaced_spacing;
-        
+
         // get lighter version of color for roll-over color...
         // $hover_color = '#f00';
         $hover_color = lighten_or_darken(get_theme_mod('bsp_menu_bar_color'), -60); // lighten by 50%
-        
+
     ?>
         <style type="text/css">
          header.site-header {
@@ -409,7 +421,7 @@ echo "<h2>" . __('BSPortfolio Theme Settings', 'bsportfolio-settings') . "</h2>"
          header.site-header a:hover {
              color: <?php echo get_theme_mod('bsp_menu_bar_link_hover_color', '#088') ?>;
          }
-         
+
          article.grid-horizontal-flow-resize, article.grid-spaced {
              height: <?php echo get_option($opt_image_size) ?>px;
          }
@@ -426,5 +438,5 @@ echo "<h2>" . __('BSPortfolio Theme Settings', 'bsportfolio-settings') . "</h2>"
     <?php
     }
     add_action('wp_head', 'bsportfolio_theme_customize_css');
-    
+
     ?>
