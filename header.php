@@ -46,9 +46,12 @@
                          * 'title_li' = '' gets rid of bullet points.
                          * 'sort_column' sorts pages order by publication date.
                          */
+                        echo '<span id="nav-menu-pages"';
                         echo wp_list_pages(array(
                             'title_li' => '',
-                            'sort_column' => 'post_date')); ?>
+                            'sort_column' => 'post_date'));
+                        echo '</span>';
+                        ?>
 
                     <?php if (get_option('bsp_show_search')) {
                         echo '<span id="nav-menu-search-form">';

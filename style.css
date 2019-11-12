@@ -96,13 +96,17 @@ header .site-title {
     display: inline-block;
 }
 
+header .nav-menu-pages {
+    display: inline-block;
+}
+
 header li.page_item {
     display: inline-block;
 }
 
 /* insert vertical bar before each static page link */
 header li.page_item::before {
-    content: " | ";
+    content: " ||| ";
 }
 
 header a {
